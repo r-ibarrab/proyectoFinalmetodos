@@ -1,7 +1,7 @@
 const socket = io('/');
 
 const myPeer = new Peer(undefined, {
-    host: 'localhost',
+    host: 'https://metodosnumericosrjcc.herokuapp.com',
     port: 9000,
     path: '/'
   });
