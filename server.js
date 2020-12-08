@@ -19,9 +19,11 @@ res.render("index");
 app.get("/create",(req,res)=>{
     res.redirect(`/${v4()}`);
 });
+
 app.get("/:room",(req,res)=>{
     res.render("room",{roomID:req.params.room});
 });
+
 
 io.on('connection',(socket)=>{
 
@@ -37,9 +39,6 @@ io.on('connection',(socket)=>{
     
 
 })
-
-
-
 
 
 server.listen(process.env.PORT || 3000);

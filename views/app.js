@@ -1,7 +1,7 @@
 const socket = io('/');
 
 const myPeer = new Peer(undefined, {
-    host: 'https://metodosnumericosrjcc.herokuapp.com',
+    host: "localhost",//'https://metodosnumericosrjcc.herokuapp.com',
     port: 9000,
     path: '/'
   });
@@ -10,6 +10,8 @@ const videoContainer = document.querySelector('.video-container');
 
 const myVideo = document.createElement('video');
 myVideo.muted=true;
+
+
 
 navigator.mediaDevices.getUserMedia({
     video:true,
@@ -65,16 +67,6 @@ function addVideoStream(video,camera,id){
     video.srcObject=camera;
     video.addEventListener('loadedmetadata',()=>{
         video.play();
-        if(id=="myself"){
-            
-            document.querySelector(".muteme").addEventListener("click",(event)=>{
-                if( video.muted == true){
-                    video.muted=false;
-                }else{
-                    video.muted=true;
-                }
-            })
-        }
     });
     vwrapper.append(video);
     videoContainer.append(vwrapper);
